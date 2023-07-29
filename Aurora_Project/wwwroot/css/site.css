@@ -1,0 +1,44 @@
+
+.logo {
+    width: 140px;
+}
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(12,3,51,0.3),rgba(12,3,51,0.3));
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Style for the hero section container */
+.hero-section {
+    position: relative;
+    height: 500px; /* Set the desired height for your hero section */
+    overflow: hidden;
+}
+
+/* Style for the video background container */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Style for the video element */
+#bgvid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6); /* Adjust the scale value as needed to control the zoom level */
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
