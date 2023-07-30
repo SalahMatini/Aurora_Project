@@ -5,45 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Aurora_Project</title>
     <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/custome-bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Aurora_Project.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <header>
-            <nav class="nav navbar-dark fixed-top">
-                <div class="container-fluid mt-3">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <a class="navbar-brand" href="#"> <img class="img-fluid logo" src="~/images/AURORA-logo.png" /> </a>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        
+       
+
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark transparent">
+            <div class="container mt-3">
+                <a class="navbar-brand" href="#"><img class="img-fluid logo" src="~/images/AURORA-logo.png" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-controller="Home" asp-action="Index" >Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
                     </ul>
+                    <div class="dropdown ms-2">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user text-white"></i>
+                        </a>
+                        <ul class="dropdown-menu text-small dropdown-menu-custome" style="">
+                           <partial name="_LoginPartial" />
+                        </ul>
+                    </div>
                 </div>
-                </ul>
-                </div>
-            </nav>
+            </div>
+        </nav>
     </header>
 
 
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
+    <footer class="footer-custome">
+        <div class="container  py-5 px-3">
+            <div class="row">
+                <div class="col footer-shop-col">
+                    <h5><i class="fa-solid fa-bicycle text-white"></i> Shop</h5>
+                    <ul class="list-unstyled py-2 fst-italic">
+                        <li>
+                            <a class="text-decoration-none text-white" href="#">Mountain Bikes</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">Road Bikes</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">Hybrid Bikes</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">E-Bikes</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col footer-shop-col">
+                    <h5><i class="fa-solid fa-headset text-white"></i> Support</h5>
+                    <ul class="list-unstyled py-2 fst-italic">
+                        <li>
+                            <a class="text-decoration-none text-white" href="#">FAQ</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">Returns</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">Warranty</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">Support Center</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col footer-shop-col">
+                    <h5><i class="fa-solid fa-info-circle text-white" style="font-size:24px"></i> About</h5>
+                    <ul class="list-unstyled py-2 fst-italic">
+                        <li>
+                            <a class="text-decoration-none text-white" href="#">Our Story</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Our Social Platforms</h5>
+                    <p>Tincidunt integer eu augue augue nunc elit dolor.</p>
+                    <div class="d-flex flex-row social-logo">
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-facebook-f text-black"></i>
+                        </a>
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-instagram text-black"></i>
+                        </a>
+                        <a class="social-link" href="#">
+                            <svg class="twitter-logo" viewBox="0 0 24 24" aria-hidden="true" ><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
+                        </a>
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-tiktok text-black"></i>
+                        </a>
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-youtube text-black"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="footer-bottom-section">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <p class="my-0">
+                        © 2023 <span class="fw-bolder" style="color: #eb4b37">AURORA</span> <span class="fw-bolder">BIKES</span>. All Rights Reserved.
+                    </p>
+                    <p class="my-0">
+                        Desinged By <span class="fw-bold">Salah Matini</span>
+                    </p>
+                </div>         
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+    </footer>
+
+
         
 
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Aurora_Project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
