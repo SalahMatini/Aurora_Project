@@ -82,3 +82,24 @@ nav.black {
     color: #000;
     background-color: #fff;
 }
+.bikeCard-img {
+    background-color: #c3c6c6;
+    padding: 1rem;
+}
+
+.custome-btn-main {
+    background-color: #eb4b37;
+    color: white;
+    border: #eb4b37;
+}
+.bike-card-col {
+
+    scroll-padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/*.newsletter-section {
+    background-image: url(https://r4.wallpaperflare.com/wallpaper/490/1005/141/bicycles-wallpaper-679024a8ec5185797d0d999f77aab46a.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% 10%;
+}*/
