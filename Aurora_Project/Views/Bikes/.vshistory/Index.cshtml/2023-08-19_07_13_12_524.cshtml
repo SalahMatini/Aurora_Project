@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Aurora_Project.Data.Entities.Bike>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h1>Bikes</h1>
+    <div>
+        <a asp-action="Create">Create New</a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.trekbikes.com/image/upload/w_800,h_600,c_pad,f_auto,fl_progressive:semi,q_auto/DUALSPORT2EQSTAGGER_22_35010_B_PRIMARY" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Brand)</h5>
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Model)</h5>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+
+
+</div>
+
+

@@ -1,66 +1,29 @@
-body {
-    
-}
-.logo {
-    width: 140px;
-}
-.nav-color {
-    background-color: rgba(0,0,0,0.7);
-    
-}
+/*#region Header */
 
-.nav-bg-video {
-    height: 75vh;
-    width: 100%;
-    object-fit: fill;
-    filter: brightness(0.6);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    overflow-x: hidden;
-}
-.nav-hero {
-    color: #fff;
-}
+   .logo {
+     width: 140px;
+   }
 
-nav.transparent {
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    transition: background-color 0.3s ease-in-out;
-    /* Add other styles like height, padding, etc. as needed */
-}
+   .dropdown-menu-custome {
+     left: -57px !important;
+     top: 40px !important;
+   }
+
+/*#endregion */
 
 
-nav.black {
-    background-color: rgba(0,0,0,0.9);
-}
-
-.dropdown-menu-custome {
-    left: -57px !important;
-    top: 40px !important;
-}
-
-.hero-section button {
-    background-color: #eb4b37;
-    color: white;
-    border: #eb4b37;
-}
-
-.footer-custome {
+/*#region footer */
+  .footer-custome {
     background-color: #121212;
     color: #fff;
-}
+  }
 
-.footer-shop-col ul {
+  .footer-shop-col ul {
     font-size: 12px;
-}
+  }
 
-.social-logo .social-link {
-    background-color: #fff; 
+  .social-logo .social-link {
+    background-color: #fff;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -70,35 +33,82 @@ nav.black {
     text-decoration: none;
     font-size: 24px;
     margin: 0 10px 0 0;
-}
+  }
 
-.twitter-logo {
+  .twitter-logo {
     height: 24px;
-}
+  }
 
-.footer-bottom-section {
+  .footer-bottom-section {
     font-size: 10px;
     color: #000;
     background-color: #fff;
-}
-.bikeCard-img {
-    background-color: #c3c6c6;
-    padding: 1rem;
-}
+  }
+/*#endregion */
 
-.custome-btn-main {
-    background-color: #eb4b37;
-    color: white;
-    border: #eb4b37;
-}
-.bike-card-col {
 
-    scroll-padding-top: 2rem;
-    padding-bottom: 2rem;
-}
+/*#region Hero */
 
-/*.newsletter-section {
-    background-image: url(https://r4.wallpaperflare.com/wallpaper/490/1005/141/bicycles-wallpaper-679024a8ec5185797d0d999f77aab46a.jpg);
-    background-repeat: no-repeat;
-    background-position: 100% 10%;
-}*/
+   .hero-video {
+     height: 75vh;
+     width: 100%;
+     object-fit: fill;
+     filter: brightness(0.6);
+     position: absolute;
+     top: 0;
+     left: 0;
+     overflow-x: hidden;
+     z-index: -1;
+   }
+
+   .hero-text {
+   color: #fff;
+   }
+   
+   
+
+/*#endregion */
+
+
+/*#region Custome-Theme */
+
+   .custome-btn-main {
+     background-color: #eb4b37;
+     color: white;
+     border: #eb4b37;
+     transition: all 0.3s;
+   }
+   .custome-btn-main:hover {
+     background-color: #eb4b37;
+     color: white;
+     border: #eb4b37;
+     transform: scale(1.15);
+   }
+   .pointer {
+       cursor: pointer;
+   }
+
+/*#endregion */
+
+
+/*#region Home & Bikes Page Cards */
+
+   .bikeCard-img {
+     background-color: #c3c6c6;
+     padding: 1rem;
+   }
+   .bike-card-col {
+     scroll-padding-top: 2rem;
+     padding-bottom: 2rem;
+   }
+
+   .custome-card {
+     transition: all 0.3s;
+   }
+
+   .custome-card:hover {
+     transform: scale(1.15)
+   }
+
+
+/*#endregion */

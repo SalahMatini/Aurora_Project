@@ -1,0 +1,52 @@
+﻿@model Aurora_Project.Data.Entities.Bike
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container-fluid my-4">
+    <h1>Bike Details</h1>
+</div>
+
+<div class="container">
+    <div>
+        <h4>Bike</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Year)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BikeType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BikeType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-secondary" asp-action="Index">Back</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    </div>
+</div>

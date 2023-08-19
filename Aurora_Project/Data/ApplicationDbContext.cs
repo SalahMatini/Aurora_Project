@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Aurora_Project.Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aurora_Project.Data
@@ -9,5 +10,7 @@ namespace Aurora_Project.Data
             : base(options)
         {
         }
+        public DbSet<Bike> Bikes { get; set; }
+
     }
 }

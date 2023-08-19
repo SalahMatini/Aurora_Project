@@ -1,0 +1,133 @@
+
+
+.hero-section custome-btn-main {
+    background-color: #eb4b37;
+    color: white;
+    border: #eb4b37;
+    transition: all 0.3s;
+}
+
+.hero-section button:hover {
+    background-color: #eb4b37;
+    color: white;
+    border: #eb4b37;
+    transform: scale(1.15);
+}
+
+
+.bikeCard-img {
+    background-color: #c3c6c6;
+    padding: 1rem;
+}
+
+.custome-btn-main {
+    background-color: #eb4b37;
+    color: white;
+    border: #eb4b37;
+}
+.bike-card-col {
+
+    scroll-padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.custome-card {
+    transition: all 0.3s;
+
+}
+
+.custome-card:hover {
+    transform: scale(1.15)
+}
+
+
+/*#region Header */
+
+.logo {
+    width: 140px;
+}
+
+/*.nav-color {
+    background-color: rgba(0,0,0,0.7);
+} */
+
+/* nav.transparent {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.3s ease-in-out;
+     Add other styles like height, padding, etc. as needed 
+   } */
+
+.dropdown-menu-custome {
+    left: -57px !important;
+    top: 40px !important;
+}
+
+
+/* nav.black {
+    background-color: rgba(0,0,0,0.9);
+   } */
+
+/*#endregion */
+
+
+
+
+/*#region footer */
+  .footer-custome {
+    background-color: #121212;
+    color: #fff;
+  }
+
+  .footer-shop-col ul {
+    font-size: 12px;
+  }
+
+  .social-logo .social-link {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    margin: 0 10px 0 0;
+  }
+
+  .twitter-logo {
+    height: 24px;
+  }
+
+  .footer-bottom-section {
+    font-size: 10px;
+    color: #000;
+    background-color: #fff;
+  }
+/*#endregion */
+
+
+
+/*#region Hero */
+
+   .hero-video {
+     height: 75vh;
+     width: 100%;
+     object-fit: fill;
+     filter: brightness(0.6);
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 0;
+     overflow-x: hidden;
+   }
+
+   .nav-hero {
+     color: #fff;
+   }
+
+/*#endregion */

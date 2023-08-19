@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="~/Aurora_Project.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
+    <header>
+        
+       
 
-    <header> 
-        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-black" >
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-black " data-bs-theme="dark">
             <div class="container mt-3">
-                <a class="navbar-brand" href="#"><img class="img-fluid logo" src="~/Assets/AURORA-logo.png" /></a>
+                <a class="navbar-brand" href="#"><img class="img-fluid logo" src="~/images/AURORA-logo.png" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -27,6 +28,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Bikes" asp-action="Index">Bikes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
                         </li>
                     </ul>
                     <div class="dropdown ms-2">
@@ -40,14 +44,12 @@
                 </div>
             </div>
         </nav>
-
     </header>
 
 
-       <main role="main" class="">
-            @RenderBody()
+        <main role="main" class="" style="min-height: 800px;">
+            @xRenderBody()
         </main>
-
 
     <footer class="footer-custome">
         <div class="container  py-5 px-3">
