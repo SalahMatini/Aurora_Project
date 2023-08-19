@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Aurora_Project.Data;
 using Aurora_Project.Data.Entities;
-using AutoMapper;
-using Aurora_Project.Models.Bikes;
 
 namespace Aurora_Project.Controllers
 {
@@ -11,12 +14,10 @@ namespace Aurora_Project.Controllers
     {
         #region Data & Constructors
         private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
 
-        public BikesController(ApplicationDbContext context, IMapper mapper)
+        public BikesController(ApplicationDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
         #endregion
 
@@ -24,13 +25,9 @@ namespace Aurora_Project.Controllers
         #region Actions
         public async Task<IActionResult> Index()
         {
-            var bikes = await _context
-                                      .Bikes
-                                      .ToListAsync();
-
-            var bikesVM = _mapper.Map<List<Bike>, List<BikeViewModel>>(bikes);
-
-            return View(bikesVM);
+            return _context.Bikes != null ?
+                        View(await _context.Bikes.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Bikes'  is null.");
         }
 
 

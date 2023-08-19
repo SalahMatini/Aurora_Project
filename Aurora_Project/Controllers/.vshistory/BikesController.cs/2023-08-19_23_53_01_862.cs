@@ -27,7 +27,6 @@ namespace Aurora_Project.Controllers
             var bikes = await _context
                                       .Bikes
                                       .ToListAsync();
-
             var bikesVM = _mapper.Map<List<Bike>, List<BikeViewModel>>(bikes);
 
             return View(bikesVM);
