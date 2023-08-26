@@ -1,4 +1,6 @@
-﻿namespace Aurora_Project.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Aurora_Project.Data.Entities
 {
     public class Bike
     {
@@ -16,5 +18,10 @@
 
         public string Color { get; set; }
 
+
+        public int BikeTypeId { get; set; }
+
+
+        public BikeType BikeType { get; set; }
     }
 }

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aurora_Project</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/custome-bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Aurora_Project.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <header> 
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-black" >
+            <div class="container mt-3">
+                <a class="navbar-brand" href="#"><img class="img-fluid logo" src="~/Assets/AURORA-logo.png" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index" >Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Bikes" asp-action="Index">Bikes</a>
+                        </li>
+                    </ul>
+                    <div class="dropdown ms-2">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user text-white"></i>
+                        </a>
+                        <ul class="dropdown-menu text-small dropdown-menu-custome" style="">
+                           <partial name="_LoginPartial" />
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+       <main role="main" class="">
+            @RenderBody()
+        </main>
+
+        w
+    <footer class="footer-custome">
+        <div class="container  py-5 px-3">
+            <div class="row">
+                <div class="col footer-shop-col">
+                    <h5><i class="fa-solid fa-bicycle text-white"></i> Shop</h5>
+                    <ul class="list-unstyled py-2 fst-italic">
+                        <li>
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> Mountain Bikes</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-angle-right fst-italic" style="color: #fff;"></i> Road Bikes</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-angle-right fst-italic" style="color: #fff;"></i> Hybrid Bikes</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> E-Bikes</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col footer-shop-col">
+                    <h5><i class="fa-solid fa-headset text-white"></i> Support</h5>
+                    <ul class="list-unstyled py-2 fst-italic">
+                        <li>
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> FAQ</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> Returns</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> Warranty</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> Support Center</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col footer-shop-col">
+                    <h5><i class="fa-solid fa-info-circle text-white" style="font-size:24px"></i> About</h5>
+                    <ul class="list-unstyled py-2 fst-italic">
+                        <li>
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> Our Story</a>
+                        </li>
+                        <li class="mt-1">
+                            <a class="text-decoration-none text-white" href="#"><i class="fa-solid fa-chevron-right fst-italic" style="color: #fff;"></i> Careers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Our Social Platforms</h5>
+                    <p>Tincidunt integer eu augue augue nunc elit dolor.</p>
+                    <div class="d-flex flex-row social-logo">
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-facebook-f text-black"></i>
+                        </a>
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-instagram text-black"></i>
+                        </a>
+                        <a class="social-link" href="#">
+                            <svg class="twitter-logo" viewBox="0 0 24 24" aria-hidden="true" ><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>
+                        </a>
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-tiktok text-black"></i>
+                        </a>
+                        <a class="social-link" href="#">
+                            <i class="fa-brands fa-youtube text-black"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="footer-bottom-section">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <p class="my-0">
+                        © 2023 <span class="fw-bolder" style="color: #eb4b37">AURORA</span> <span class="fw-bolder">BIKES</span>. All Rights Reserved.
+                    </p>
+                    <p class="my-0">
+                        Desinged By <span class="fw-bold">Salah Matini</span>
+                    </p>
+                </div>         
+            </div>
+        </section>
+    </footer>
+
+
+        
+
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

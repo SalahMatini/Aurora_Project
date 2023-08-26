@@ -137,12 +137,33 @@ namespace Aurora_Project.Controllers
         }
 
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.Bikes == null)
+            {
+                return NotFound();
+            }
+
+            var bike = await _context.Bikes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (bike == null)
+            {
+                return NotFound();
+            }
+
+            return View(bike);
+        }
+
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (_context.Bikes == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Bikes'  is null.");
+            }
             var bike = await _context.Bikes.FindAsync(id);
-
 
             if (bike != null)
             {
@@ -151,8 +172,6 @@ namespace Aurora_Project.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
-
         }
         #endregion
 

@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Bikes\**" />
+    <Content Remove="Views\Bikes\**" />
+    <EmbeddedResource Remove="Views\Bikes\**" />
+    <None Remove="Views\Bikes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.9" />
@@ -22,6 +29,14 @@
 
   <ItemGroup>
     <Folder Include="Enums\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Bikes\Create.cshtml" />
+    <None Include="Views\Bikes\Delete.cshtml" />
+    <None Include="Views\Bikes\Details.cshtml" />
+    <None Include="Views\Bikes\Edit.cshtml" />
+    <None Include="Views\Bikes\Index.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -65,48 +65,39 @@ namespace Aurora_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Brand,Model,Year,Color")] BikeCreateUpdateViewModel bikeVM)
+        public async Task<IActionResult> Create([Bind("Id,Brand,Model,Year,Color")] Bike bike)
         {
             if (ModelState.IsValid)
             {
-                var bike = _mapper.Map<BikeCreateUpdateViewModel, Bike>(bikeVM);
-
                 _context.Add(bike);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bikeVM);
+            return View(bike);
         }
 
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Bikes == null)
             {
                 return NotFound();
             }
 
-            var bike = await _context
-                                    .Bikes
-                                    .FindAsync(id);
-
-
+            var bike = await _context.Bikes.FindAsync(id);
             if (bike == null)
             {
                 return NotFound();
             }
-
-            var bikeVM = _mapper.Map<Bike, BikeCreateUpdateViewModel>(bike);
-
-            return View(bikeVM);
+            return View(bike);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Model,Year,Color")] BikeCreateUpdateViewModel bikeVM)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Model,Year,Color")] Bike bike)
         {
-            if (id != bikeVM.Id)
+            if (id != bike.Id)
             {
                 return NotFound();
             }
@@ -115,14 +106,12 @@ namespace Aurora_Project.Controllers
             {
                 try
                 {
-                    var bike = _mapper.Map<BikeCreateUpdateViewModel, Bike>(bikeVM);
-
                     _context.Update(bike);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BikeExists(bikeVM.Id))
+                    if (!BikeExists(bike.Id))
                     {
                         return NotFound();
                     }
@@ -133,7 +122,25 @@ namespace Aurora_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bikeVM);
+            return View(bike);
+        }
+
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.Bikes == null)
+            {
+                return NotFound();
+            }
+
+            var bike = await _context.Bikes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (bike == null)
+            {
+                return NotFound();
+            }
+
+            return View(bike);
         }
 
 
@@ -141,9 +148,11 @@ namespace Aurora_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (_context.Bikes == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Bikes'  is null.");
+            }
             var bike = await _context.Bikes.FindAsync(id);
-
-
             if (bike != null)
             {
                 _context.Bikes.Remove(bike);
@@ -151,8 +160,6 @@ namespace Aurora_Project.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
-
         }
         #endregion
 

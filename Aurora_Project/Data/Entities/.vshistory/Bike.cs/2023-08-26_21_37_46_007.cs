@@ -16,5 +16,10 @@
 
         public string Color { get; set; }
 
+
+        public int BikeTypeId { get; set; }
+
+
+        public BikeType BikeType { get; set; }
     }
 }

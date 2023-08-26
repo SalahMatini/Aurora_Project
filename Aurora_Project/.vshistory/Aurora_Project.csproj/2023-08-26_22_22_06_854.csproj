@@ -24,4 +24,20 @@
     <Folder Include="Enums\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Views\Bikes\.vshistory\Create.cshtml\2023-08-19_06_32_17_357.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Create.cshtml\2023-08-19_08_26_21_884.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Create.cshtml\2023-08-19_08_31_53_510.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Create.cshtml\2023-08-19_08_36_20_274.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Create.cshtml\2023-08-24_04_35_35_917.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Details.cshtml\2023-08-19_06_32_17_527.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Details.cshtml\2023-08-19_08_36_20_223.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Edit.cshtml\2023-08-19_06_32_17_439.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Edit.cshtml\2023-08-19_08_31_53_489.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Index.cshtml\2023-08-19_06_32_17_657.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Index.cshtml\2023-08-19_07_13_12_524.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Index.cshtml\2023-08-19_08_26_21_913.cshtml" />
+    <None Include="Views\Bikes\.vshistory\Index.cshtml\2023-08-20_00_22_05_577.cshtml" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
-﻿namespace Aurora_Project.Data.Entities
+﻿namespace Aurora_Project.Models.Bikes
 {
-    public class Bike
+    public class BikeCreateUpdateViewModel
     {
         public int Id { get; set; }
 

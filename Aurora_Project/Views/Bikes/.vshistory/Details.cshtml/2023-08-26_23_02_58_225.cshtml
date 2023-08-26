@@ -13,10 +13,6 @@
     <div>
         <h4>Bike</h4>
         <hr />
-        <div class"mx-auto">
-            <img src="https://media.trekbikes.com/image/upload/f_auto,fl_progressive:semi,q_auto,w_1920,h_1440,c_pad/FuelEX99XX1AXS_23_36956_C_Primary" class="img-fluid" style="width: 500px;" />
-            </div>
-        <hr />
         <dl class="row">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Brand)
@@ -44,9 +40,8 @@
             </dd>
         </dl>
     </div>
-    <hr />
     <div>
-        <a class="btn btn-secondary me-3" asp-action="Index">Back</a>
+        <a class="btn btn-secondary" asp-action="Index">Back</a>
         <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
     </div>
 </div>
