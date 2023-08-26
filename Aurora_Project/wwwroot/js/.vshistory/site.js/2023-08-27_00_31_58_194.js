@@ -3,4 +3,3 @@
 
 // Write your JavaScript code.
 
-$(' [data-toggle=\"popover\"]').popover({ boundary: 'window', html: true })
