@@ -1,0 +1,63 @@
+﻿@using Aurora_Project.Models.Bikes;
+@model BikeDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div class="container my-5">
+    <h1>Bike Details</h1>
+
+    <div class="border p-2 shadow">
+        <div class="row">
+            <div class="col-md-6">
+                <div class"mx-auto">
+                    <img src="https://media.trekbikes.com/image/upload/f_auto,fl_progressive:semi,q_auto,w_1920,h_1440,c_pad/FuelEX99XX1AXS_23_36956_C_Primary" class="img-fluid bikeCard-img" style="width: 500px;" />
+                </div>
+            </div>
+
+            <div class="col-md-6 py-3">
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Brand)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Model)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Year)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Color)
+                    </td>
+                </tr>
+            </div>
+        </div>
+       
+    </div>
+    <hr />
+    <div>
+        <a class="btn btn-secondary me-3" asp-action="Index">Back</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    </div>
+</div>

@@ -4,6 +4,7 @@ using Aurora_Project.Data;
 using Aurora_Project.Data.Entities;
 using AutoMapper;
 using Aurora_Project.Models.Bikes;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Aurora_Project.Controllers
 {
@@ -65,7 +66,7 @@ namespace Aurora_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Brand,Model,Year,Color")] BikeCreateUpdateViewModel bikeVM)
+        public async Task<IActionResult> Create(BikeCreateUpdateViewModel bikeVM)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +76,7 @@ namespace Aurora_Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(bikeVM);
         }
 
@@ -104,7 +106,7 @@ namespace Aurora_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brand,Model,Year,Color")] BikeCreateUpdateViewModel bikeVM)
+        public async Task<IActionResult> Edit(int id, BikeCreateUpdateViewModel bikeVM)
         {
             if (id != bikeVM.Id)
             {
@@ -119,6 +121,7 @@ namespace Aurora_Project.Controllers
 
                     _context.Update(bike);
                     await _context.SaveChangesAsync();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -141,8 +144,9 @@ namespace Aurora_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var bike = await _context.Bikes.FindAsync(id);
-
+            var bike = await _context
+                                    .Bikes
+                                    .FindAsync(id);
 
             if (bike != null)
             {

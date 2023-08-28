@@ -1,0 +1,58 @@
+﻿@using Aurora_Project.Models.Bikes;
+@model BikeDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div class="container my-5">
+    <h1>Bike Details</h1>
+
+    <div class="border p-2 shadow">
+        <div class="row">
+            <div class="col-md-6">
+                <div class"mx-auto">
+                    <img src="https://media.trekbikes.com/image/upload/f_auto,fl_progressive:semi,q_auto,w_1920,h_1440,c_pad/FuelEX99XX1AXS_23_36956_C_Primary" class="img-fluid bikeCard-img" style="width: 630px; height: 400px;" />
+                </div>
+            </div>
+
+            <div class="col-md-6 py-3">
+                <dl class="">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Brand)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Brand)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Model)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Model)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Year)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Year)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Color)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Color)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        
+        
+    </div>
+    <hr />
+    <div>
+        <a class="btn btn-secondary me-3" asp-action="Index">Back</a>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    </div>
+</div>

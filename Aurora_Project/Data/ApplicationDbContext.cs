@@ -11,5 +11,6 @@ namespace Aurora_Project.Data
         {
         }
         public DbSet<Bike> Bikes { get; set; }
+        public DbSet<BikeType> BikeTypes { get; set; }
     }
 }

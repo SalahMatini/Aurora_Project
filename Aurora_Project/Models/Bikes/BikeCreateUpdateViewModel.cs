@@ -1,4 +1,7 @@
-﻿namespace Aurora_Project.Models.Bikes
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace Aurora_Project.Models.Bikes
 {
     public class BikeCreateUpdateViewModel
     {
@@ -16,5 +19,14 @@
 
         public string Color { get; set; }
 
+
+        public decimal Price { get; set; }
+
+
+        public int? BikeTypeId { get; set; }
+
+
+        [ValidateNever]
+        public SelectList? BikeTypeSelectList { get; set; }
     }
 }
