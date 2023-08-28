@@ -11,10 +11,7 @@ namespace Aurora_Project.Data
         {
         }
         public DbSet<Bike> Bikes { get; set; }
-
         public DbSet<BikeType> BikeTypes { get; set; }
-
-        public DbSet<Customer> Customers { get; set; }
-
+        public DbSet<Aurora_Project.Data.Entities.Customer> Customer { get; set; } = default!;
     }
 }

@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Aurora_Project.Data;
 using Aurora_Project.Data.Entities;
@@ -64,7 +69,7 @@ namespace Aurora_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(BikeTypeCreateUpdateViewModel bikeTypeVM)
+        public async Task<IActionResult> Create([Bind("Id,Type")] BikeTypeCreateUpdateViewModel bikeTypeVM)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +85,7 @@ namespace Aurora_Project.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (id == null || _context.BikeTypes == null)
             {
                 return NotFound();
             }
@@ -102,7 +107,7 @@ namespace Aurora_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, BikeTypeCreateUpdateViewModel bikeTypeVM)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Type")] BikeTypeCreateUpdateViewModel bikeTypeVM)
         {
             if (id != bikeTypeVM.Id)
             {
@@ -113,9 +118,9 @@ namespace Aurora_Project.Controllers
             {
                 try
                 {
-                    var bikeType = _mapper.Map<BikeTypeCreateUpdateViewModel, BikeType>(bikeTypeVM);
+                    var bike = _mapper.Map<BikeTypeCreateUpdateViewModel, BikeType>(bikeTypeVM);
 
-                    _context.Update(bikeType);
+                    _context.Update(bikeTypeVM);
                     await _context.SaveChangesAsync();
                 }
 

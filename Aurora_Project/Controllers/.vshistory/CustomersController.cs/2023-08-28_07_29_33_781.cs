@@ -3,17 +3,20 @@ using Microsoft.EntityFrameworkCore;
 using Aurora_Project.Data;
 using Aurora_Project.Data.Entities;
 using AutoMapper;
-using Aurora_Project.Models.BikeTypes;
+using Aurora_Project.Models.Customers;
 
 namespace Aurora_Project.Controllers
 {
-    public class BikeTypesController : Controller
+
+    public class CustomersController : Controller
     {
+
+
         #region Data & Constructors
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
 
-        public BikeTypesController(ApplicationDbContext context, IMapper mapper)
+        public CustomersController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -24,13 +27,13 @@ namespace Aurora_Project.Controllers
         #region Actions
         public async Task<IActionResult> Index()
         {
-            var bikeTypes = await _context
-                                         .BikeTypes
+            var customers = await _context
+                                         .Customers
                                          .ToListAsync();
 
-            var bikeTypeVMs = _mapper.Map<List<BikeType>, List<BikeTypeIndexViewModel>>(bikeTypes);
+            var customerVMs = _mapper.Map<List<Customer>, List<CustomerIndexViewModel>>(customers);
 
-            return View(bikeTypeVMs);
+            return View(customerVMs);
         }
 
 
@@ -41,18 +44,18 @@ namespace Aurora_Project.Controllers
                 return NotFound();
             }
 
-            var bikeType = await _context
-                                        .BikeTypes
+            var customer = await _context
+                                        .Customers
                                         .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (bikeType == null)
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            var bikeTypeVM = _mapper.Map<BikeType, BikeTypeDetailsViewModel>(bikeType);
+            var customerVM = _mapper.Map<Customer, CustomerDetailsViewModel>(customer);
 
-            return View(bikeTypeVM);
+            return View(customerVM);
         }
 
 
@@ -64,17 +67,18 @@ namespace Aurora_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(BikeTypeCreateUpdateViewModel bikeTypeVM)
+        public async Task<IActionResult> Create(CustomerCreateUpdateViewModel customerVM)
         {
             if (ModelState.IsValid)
             {
-                var bikeType = _mapper.Map<BikeTypeCreateUpdateViewModel, BikeType>(bikeTypeVM);
 
-                _context.Add(bikeType);
+                var customer = _mapper.Map<CustomerCreateUpdateViewModel, Customer>(customerVM);
+
+                _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(bikeTypeVM);
+            return View(customerVM);
         }
 
 
@@ -85,26 +89,27 @@ namespace Aurora_Project.Controllers
                 return NotFound();
             }
 
-            var bikeType = await _context
-                                        .BikeTypes
+            var customer = await _context
+                                        .Customers
                                         .FindAsync(id);
 
-            if (bikeType == null)
+
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            var bikeTypeVM = _mapper.Map<BikeType, BikeTypeCreateUpdateViewModel>(bikeType);
+            var customerVM = _mapper.Map<Customer, CustomerCreateUpdateViewModel>(customer);
 
-            return View(bikeTypeVM);
+            return View(customerVM);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, BikeTypeCreateUpdateViewModel bikeTypeVM)
+        public async Task<IActionResult> Edit(int id, CustomerCreateUpdateViewModel customerVM)
         {
-            if (id != bikeTypeVM.Id)
+            if (id != customerVM.Id)
             {
                 return NotFound();
             }
@@ -113,15 +118,16 @@ namespace Aurora_Project.Controllers
             {
                 try
                 {
-                    var bikeType = _mapper.Map<BikeTypeCreateUpdateViewModel, BikeType>(bikeTypeVM);
+                    var customer = _mapper.Map<CustomerCreateUpdateViewModel, Customer>(customerVM);
 
-                    _context.Update(bikeType);
+                    _context.Update(customerVM);
                     await _context.SaveChangesAsync();
+
                 }
 
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BikeTypeExists(bikeTypeVM.Id))
+                    if (!CustomerExists(customerVM.Id))
                     {
                         return NotFound();
                     }
@@ -132,39 +138,38 @@ namespace Aurora_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(bikeTypeVM);
+            return View(customerVM);
         }
-      
+
+
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.BikeTypes == null)
+            if (_context.Customers == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.BikeTypes'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Customers'  is null.");
             }
-            var bikeType = await _context
-                                        .BikeTypes
-                                        .FindAsync(id);
-
-            if (bikeType != null)
+            var customer = await _context.Customers.FindAsync(id);
+            if (customer != null)
             {
-                _context.BikeTypes.Remove(bikeType);
+                _context.Customers.Remove(customer);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-
         }
         #endregion
 
 
         #region Private Methods
-        private bool BikeTypeExists(int id)
+        private bool CustomerExists(int id)
         {
-            return (_context.BikeTypes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Customers?.Any(e => e.Id == id)).GetValueOrDefault();
         } 
         #endregion
+
+
     }
 }
