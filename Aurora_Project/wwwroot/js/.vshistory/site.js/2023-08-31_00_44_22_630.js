@@ -4,5 +4,3 @@
 // Write your JavaScript code.
 
 new DataTable('#OrdersTable');
-
-new DataTable('#CustomersTable');

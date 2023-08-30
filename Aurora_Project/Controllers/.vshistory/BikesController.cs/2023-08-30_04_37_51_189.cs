@@ -66,6 +66,9 @@ namespace Aurora_Project.Controllers
 
             bikeVM.BikeTypesSelectList = new SelectList(_context.BikeTypes, "Id", "Type");
 
+            ViewData["bikeTypes"] = new SelectList(_context.BikeTypes, "Id", "Type");
+
+
             return View(bikeVM);
         }
 

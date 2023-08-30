@@ -58,11 +58,5 @@ namespace Aurora_Project.Data.Entities
 
         [Required]
         public string Address { get; set; }
-
-
-        public List<Order> Orders { get; set; }
-
-
-
     }
 }

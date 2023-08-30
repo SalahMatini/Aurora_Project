@@ -6,7 +6,7 @@
 }
 
 <div class="container my-4 py-4">
-    <h1>Customer Details:</h1>
+    <h1>lCustomer Details:</h1>
 
     <div>
         <hr />
@@ -54,7 +54,7 @@
                         @Html.DisplayFor(modelItem => Model.Age)
                     </td>
                     <td>
-                        @Model.DateOfBirth.ToString("dd-MMM-yyyy")
+                        @Html.DisplayFor(modelItem => Model.DateOfBirth)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => Model.Email)
