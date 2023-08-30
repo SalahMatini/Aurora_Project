@@ -23,10 +23,10 @@ namespace Aurora_Project.Models.Bikes
         public decimal Price { get; set; }
 
 
-        public int BikeTypeId { get; set; }
+        public int? BikeTypeId { get; set; }
 
 
         [ValidateNever]
-        public SelectList BikeTypesSelectList { get; set; }
+        public SelectList BikeTypeSelectList { get; set; }
     }
 }

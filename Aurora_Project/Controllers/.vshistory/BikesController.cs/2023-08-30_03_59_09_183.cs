@@ -45,7 +45,6 @@ namespace Aurora_Project.Controllers
 
             var bike = await _context
                                     .Bikes
-                                    .Include(bike => bike.BikeType)
                                     .FirstOrDefaultAsync(m => m.Id == id);
             if (bike == null)
             {
@@ -62,14 +61,10 @@ namespace Aurora_Project.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var bikeVM = new BikeCreateUpdateViewModel();
-
-            bikeVM.BikeTypesSelectList = new SelectList(_context.BikeTypes, "Id", "Type");
-
             ViewData["bikeTypes"] = new SelectList(_context.BikeTypes, "Id", "Type");
 
 
-            return View(bikeVM);
+            return View();
         }
 
 
@@ -86,7 +81,8 @@ namespace Aurora_Project.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            bikeVM.BikeTypesSelectList = new SelectList(_context.BikeTypes, "Id", "Type", bikeVM.BikeTypeId);
+
+            ViewData["BikeTypeId"] = new SelectList(_context.BikeTypes, "Id", "Type", bikeVM.BikeTypeId);
 
             return View(bikeVM);
         }
@@ -109,9 +105,9 @@ namespace Aurora_Project.Controllers
                 return NotFound();
             }
 
-            var bikeVM = _mapper.Map<Bike, BikeCreateUpdateViewModel>(bike);
+            ViewData["BikeTypeId"] = new SelectList(_context.BikeTypes, "Id", "Type", bikeVM.BikeTypeId);
 
-            bikeVM.BikeTypesSelectList = new SelectList(_context.BikeTypes, "Id", "Type", bike.BikeTypeId);
+            var bikeVM = _mapper.Map<Bike, BikeCreateUpdateViewModel>(bike);
 
             return View(bikeVM);
         }
@@ -150,7 +146,7 @@ namespace Aurora_Project.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            bikeVM.BikeTypesSelectList = new SelectList(_context.BikeTypes, "Id", "Type", bikeVM.BikeTypeId);
+            ViewData["BikeTypeId"] = new SelectList(_context.BikeTypes, "Id", "Type", bikeVM.BikeTypeId);
 
             return View(bikeVM);
         }

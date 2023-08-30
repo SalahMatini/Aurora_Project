@@ -38,14 +38,6 @@
                     </tr>
                     <tr>
                         <td class="fw-bold">
-                            @Html.DisplayNameFor(model => model.BikeTypeType):
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.BikeTypeType)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="fw-bold">
                             @Html.DisplayNameFor(model => model.Year):
                         </td>
                         <td>
@@ -65,7 +57,7 @@
                             @Html.DisplayNameFor(model => model.Price):
                         </td>
                         <td>
-                            @Model.Price.ToString("c")
+                            $@Html.DisplayFor(model => model.Price)
                         </td>
                     </tr>
                 </table>

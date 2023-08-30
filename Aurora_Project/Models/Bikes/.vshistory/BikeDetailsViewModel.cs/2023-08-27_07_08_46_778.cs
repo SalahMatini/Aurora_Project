@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace Aurora_Project.Models.Bikes
+﻿namespace Aurora_Project.Models.Bikes
 {
     public class BikeDetailsViewModel
     {
@@ -22,9 +19,5 @@ namespace Aurora_Project.Models.Bikes
 
 
         public decimal Price { get; set; }
-
-
-        [Display(Name = "Bike Type")]
-        public string BikeTypeType { get; set; }
     }
 }

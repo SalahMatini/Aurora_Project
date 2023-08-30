@@ -1,5 +1,6 @@
 ﻿using Aurora_Project.Enums;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Aurora_Project.Models.Customers
@@ -37,5 +38,6 @@ namespace Aurora_Project.Models.Customers
 
 
         public string Address { get; set; }
+
     }
 }

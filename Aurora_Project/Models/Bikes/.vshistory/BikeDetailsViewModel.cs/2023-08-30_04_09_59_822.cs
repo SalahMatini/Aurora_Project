@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace Aurora_Project.Models.Bikes
+﻿namespace Aurora_Project.Models.Bikes
 {
-    public class BikeCreateUpdateViewModel
+    public class BikeDetailsViewModel
     {
+
         public int Id { get; set; }
 
 
@@ -24,9 +22,5 @@ namespace Aurora_Project.Models.Bikes
 
 
         public int BikeTypeId { get; set; }
-
-
-        [ValidateNever]
-        public SelectList BikeTypesSelectList { get; set; }
     }
 }

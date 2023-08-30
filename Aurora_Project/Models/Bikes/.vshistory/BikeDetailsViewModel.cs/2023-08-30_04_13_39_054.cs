@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Aurora_Project.Models.Bikes
 {
-    public class BikeCreateUpdateViewModel
+    public class BikeDetailsViewModel
     {
+
         public int Id { get; set; }
 
 
@@ -23,10 +24,7 @@ namespace Aurora_Project.Models.Bikes
         public decimal Price { get; set; }
 
 
-        public int BikeTypeId { get; set; }
-
-
-        [ValidateNever]
-        public SelectList BikeTypesSelectList { get; set; }
+        [Display(Name = "Bike Type")]
+        public int BikeTypeType { get; set; }
     }
 }
