@@ -14,11 +14,7 @@ namespace Aurora_Project.AutoMapperProfiles
 
             CreateMap<Order, OrderDetailsViewModel>();
 
-            CreateMap<OrderCreateUpdateViewModel, Order>();
-
-            CreateMap<Order, OrderCreateUpdateViewModel>()
-                .ForMember(dest => dest.BikeIds,
-                opts => opts.MapFrom(src => src.Bikes.Select(bike => bike.Id).ToList()));
+            CreateMap<OrderCreateUpdateViewModel, Order>().ReverseMap();
 
         }
 

@@ -1,11 +1,10 @@
-﻿using Aurora_Project.Enums;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Aurora_Project.Data.Entities;
+using Aurora_Project.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Aurora_Project.Models.Orders
 {
-    public class OrderCreateUpdateViewModel
+    public class OrderDetailsViewModel
     {
 
 
@@ -27,15 +26,9 @@ namespace Aurora_Project.Models.Orders
         public int CustomerId { get; set; }
 
 
-        [ValidateNever]
-        public SelectList CustomersSelectList { get; set; }
+        public Customer Customer { get; set; }
 
 
-        [Display(Name = "Bikes")]
-        public List<int> BikeIds { get; set; }
-
-
-        [ValidateNever]
-        public MultiSelectList BikesMultiselectList { get; set; }
+        public List<BikeViewModel> Ingredients { get; set; }
     }
 }

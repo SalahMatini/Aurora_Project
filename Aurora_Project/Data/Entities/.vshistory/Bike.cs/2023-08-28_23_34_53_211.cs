@@ -15,15 +15,6 @@ namespace Aurora_Project.Data.Entities
         public string Model { get; set; }
 
 
-        public string Title
-        {
-            get
-            {
-                return $"{Brand}: {Model} - {Year}";
-            }
-        }
-
-
         [Required]
         public int Year { get; set; }
 
@@ -40,8 +31,5 @@ namespace Aurora_Project.Data.Entities
 
 
         public BikeType BikeType { get; set; }
-
-
-        public List<Order> Orders { get; set; }
     }
 }

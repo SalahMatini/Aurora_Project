@@ -1,6 +1,5 @@
 ﻿using Aurora_Project.Data.Entities;
 using Aurora_Project.Models.Bikes;
-using Aurora_Project.Models.Orders;
 using AutoMapper;
 
 namespace Aurora_Project.AutoMapperProfiles
@@ -14,7 +13,6 @@ namespace Aurora_Project.AutoMapperProfiles
             CreateMap<Bike, BikeDetailsViewModel>();
 
             CreateMap<BikeCreateUpdateViewModel, Bike>().ReverseMap();
-
         }
     }
 }

@@ -63,7 +63,7 @@ namespace Aurora_Project.Controllers
             var orderVM = new OrderCreateUpdateViewModel();
 
             orderVM.CustomersSelectList = new SelectList(_context.Customers, "Id", "FullName");
-            orderVM.BikesMultiselectList = new MultiSelectList(_context.Bikes, "Id", "Title");
+            orderVM.BikesMultiselectList = new MultiSelectList(_context.Bikes, "Id");
 
             return View(orderVM);
         }
@@ -78,8 +78,6 @@ namespace Aurora_Project.Controllers
 
                 var order = _mapper.Map<OrderCreateUpdateViewModel, Order>(orderVM);
 
-                await UpdateOrderBikes(order, orderVM.BikeIds);
-
                 _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,7 +85,6 @@ namespace Aurora_Project.Controllers
 
             orderVM.CustomersSelectList = new SelectList(_context.Customers, "Id", "FullName", orderVM.CustomerId);
 
-            orderVM.BikesMultiselectList = new SelectList(_context.Bikes, "Id", "Title", orderVM.BikeIds);
 
             return View(orderVM);
         }
@@ -102,10 +99,9 @@ namespace Aurora_Project.Controllers
 
             var order = await _context
                                      .Orders
-                                     .Include(order => order.Bikes)
-                                     .Where(order => order.Id == id)
-                                     .SingleOrDefaultAsync();
-                                     
+                                     .FindAsync(id);
+
+
             if (order == null)
             {
                 return NotFound();
@@ -113,8 +109,6 @@ namespace Aurora_Project.Controllers
             
             var orderVM = _mapper.Map<Order, OrderCreateUpdateViewModel>(order);
 
-
-            orderVM.BikesMultiselectList = new MultiSelectList(_context.Bikes, "Id", "Title", orderVM.BikeIds);
             orderVM.CustomersSelectList = new SelectList(_context.Customers, "Id", "FullName", order.CustomerId);
 
             return View(orderVM);
@@ -132,34 +126,17 @@ namespace Aurora_Project.Controllers
 
             if (ModelState.IsValid)
             {
-
-                var order = await _context
-                                         .Orders
-                                         .Include(order => order.Bikes)
-                                         .SingleOrDefaultAsync(order => order.Id == id);
-
-                if (order == null)
-                {
-                    return NotFound();
-                }
-
-                _mapper.Map(orderVM, order);
-
-                await UpdateOrderBikes(order, orderVM.BikeIds);
-
                 try
                 {
-                    _context.Update(order);
+                    _context.Update(orderVM);
                     await _context.SaveChangesAsync();
                 }
-
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!OrderExists(orderVM.Id))
                     {
                         return NotFound();
                     }
-
                     else
                     {
                         throw;
@@ -169,7 +146,6 @@ namespace Aurora_Project.Controllers
             }
 
             orderVM.CustomersSelectList = new SelectList(_context.Customers, "Id", "FullName", orderVM.CustomerId);
-            orderVM.BikesMultiselectList = new MultiSelectList(_context.Bikes, "Id", "Title", orderVM.BikeIds);
 
             return View(orderVM);
         }
@@ -200,24 +176,6 @@ namespace Aurora_Project.Controllers
         {
             return (_context.Orders?.Any(e => e.Id == id)).GetValueOrDefault();
         } 
-
-        private async Task UpdateOrderBikes(Order order, List<int> bikeIds)
-        {
-            var bikes = await _context
-                                     .Bikes
-                                     .Where(bike => bikeIds.Contains(bike.Id))
-                                     .ToListAsync();
-            
-            order.Bikes.Clear();
-
-            order.Bikes.AddRange(bikes);
-
-        }
-
-
-
-
-
         #endregion
     }
 }

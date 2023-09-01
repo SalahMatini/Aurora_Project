@@ -29,13 +29,5 @@ namespace Aurora_Project.Models.Orders
 
         [ValidateNever]
         public SelectList CustomersSelectList { get; set; }
-
-
-        [Display(Name = "Bikes")]
-        public List<int> BikeIds { get; set; }
-
-
-        [ValidateNever]
-        public MultiSelectList BikesMultiselectList { get; set; }
     }
 }

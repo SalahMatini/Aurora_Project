@@ -27,6 +27,11 @@ namespace Aurora_Project.Models.Bikes
         public int BikeTypeId { get; set; }
 
 
+
+        [Display(Name = "Bikes")]
+        public List<int> BikeIds { get; set; }
+
+
         [ValidateNever]
         public SelectList BikeTypesSelectList { get; set; }
     }

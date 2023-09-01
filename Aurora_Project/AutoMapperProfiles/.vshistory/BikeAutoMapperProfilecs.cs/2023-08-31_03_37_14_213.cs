@@ -13,8 +13,12 @@ namespace Aurora_Project.AutoMapperProfiles
 
             CreateMap<Bike, BikeDetailsViewModel>();
 
-            CreateMap<BikeCreateUpdateViewModel, Bike>().ReverseMap();
+            CreateMap<BikeCreateUpdateViewModel, Bike>();
 
+
+            CreateMap<Order, OrderCreateUpdateViewModel>()
+                .ForMember(dest => dest.BikeIds,
+                opts => opts.MapFrom(src => src.Bikes.Select(bike => bike.Id).ToList()));
         }
     }
 }

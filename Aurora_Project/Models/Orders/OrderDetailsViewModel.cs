@@ -27,5 +27,8 @@ namespace Aurora_Project.Models.Orders
 
 
         public Customer Customer { get; set; }
+
+
+        //public List<> Ingredients { get; set; }
     }
 }

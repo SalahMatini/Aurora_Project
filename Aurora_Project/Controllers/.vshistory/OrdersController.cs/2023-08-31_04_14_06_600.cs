@@ -149,7 +149,7 @@ namespace Aurora_Project.Controllers
 
                 try
                 {
-                    _context.Update(order);
+                    _context.Update(orderVM);
                     await _context.SaveChangesAsync();
                 }
 

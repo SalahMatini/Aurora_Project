@@ -6,5 +6,3 @@
 new DataTable('#OrdersTable');
 
 new DataTable('#CustomersTable');
-
-$('.select2').select2();

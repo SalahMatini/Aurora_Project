@@ -132,11 +132,10 @@ namespace Aurora_Project.Controllers
 
             if (ModelState.IsValid)
             {
-
                 var order = await _context
-                                         .Orders
-                                         .Include(order => order.Bikes)
-                                         .SingleOrDefaultAsync(order => order.Id == id);
+                                .Orders
+                                .Include(order => order.Bikes)
+                                .SingleOrDefaultAsync(order => order.Id == id);
 
                 if (order == null)
                 {
@@ -152,14 +151,12 @@ namespace Aurora_Project.Controllers
                     _context.Update(order);
                     await _context.SaveChangesAsync();
                 }
-
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!OrderExists(orderVM.Id))
                     {
                         return NotFound();
                     }
-
                     else
                     {
                         throw;
@@ -167,16 +164,10 @@ namespace Aurora_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-
-            orderVM.CustomersSelectList = new SelectList(_context.Customers, "Id", "FullName", orderVM.CustomerId);
-            orderVM.BikesMultiselectList = new MultiSelectList(_context.Bikes, "Id", "Title", orderVM.BikeIds);
-
-            return View(orderVM);
         }
 
 
-
-        [HttpPost, ActionName("Delete")]
+            [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

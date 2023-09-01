@@ -5,13 +5,6 @@ namespace Aurora_Project.Data.Entities
 {
     public class Order
     {
-
-        public Order()
-        {
-            Bikes = new List<Bike>();
-        }
-
-
         public int Id { get; set; }
 
 
@@ -28,8 +21,5 @@ namespace Aurora_Project.Data.Entities
 
 
         public Customer Customer { get; set; }
-
-
-        public List<Bike> Bikes { get; set; }
     }
 }
