@@ -22,6 +22,7 @@ namespace Aurora_Project.Controllers
         }
         #endregion
 
+
         #region Actions
 
         public async Task<IActionResult> Index()
@@ -29,6 +30,7 @@ namespace Aurora_Project.Controllers
             var orders = await _context
                                       .Orders
                                       .Include(orders => orders.Customer)
+                                      .Include(orders => orders.Bikes)
                                       .ToListAsync();
 
             var orderVMs = _mapper.Map<List<Order>, List<OrderIndexViewModel>>(orders);
@@ -46,6 +48,8 @@ namespace Aurora_Project.Controllers
 
             var order = await _context.Orders
                                             .Include(order => order.Customer)
+                                            .Include(orders => orders.Bikes)
+                                            .ThenInclude(bike => bike.BikeType)
                                             .FirstOrDefaultAsync(m => m.Id == id);
             if (order == null)
             {
@@ -194,6 +198,7 @@ namespace Aurora_Project.Controllers
             return RedirectToAction(nameof(Index));
         }
         #endregion
+
 
         #region Private Methods
         private bool OrderExists(int id)

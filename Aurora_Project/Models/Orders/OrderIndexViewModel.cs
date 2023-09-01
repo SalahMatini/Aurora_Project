@@ -23,6 +23,10 @@ namespace Aurora_Project.Models.Orders
         public string ShippingAddress { get; set; }
 
 
+        [Display(Name = "Total Price")]
+        public decimal TotalPrice { get; set; }
+
+
         public int? CustomerId { get; set; }
 
 

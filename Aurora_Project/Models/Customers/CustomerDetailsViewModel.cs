@@ -1,4 +1,5 @@
-﻿using Aurora_Project.Enums;
+﻿using Aurora_Project.Data.Entities;
+using Aurora_Project.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Aurora_Project.Models.Customers
@@ -31,5 +32,11 @@ namespace Aurora_Project.Models.Customers
 
 
         public string Address { get; set; }
+
+
+        public int OrderId { get; set; }
+
+
+        public List<Order> Orders { get; set; }
     }
 }

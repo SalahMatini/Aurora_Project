@@ -46,6 +46,8 @@ namespace Aurora_Project.Controllers
 
             var customer = await _context
                                         .Customers
+                                        .Include(customer => customer.Orders)
+                                        .ThenInclude(order => order.Bikes)
                                         .FirstOrDefaultAsync(m => m.Id == id);
 
             if (customer == null)

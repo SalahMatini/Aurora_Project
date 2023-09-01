@@ -15,7 +15,7 @@ namespace Aurora_Project.Models.Bikes
         public string Model { get; set; }
 
 
-        public int Year { get; set; }
+        public string Year { get; set; }
 
 
         public string Color { get; set; }
@@ -29,5 +29,9 @@ namespace Aurora_Project.Models.Bikes
 
         [ValidateNever]
         public SelectList BikeTypesSelectList { get; set; }
+
+
+        [ValidateNever]
+        public string Title { get; set; }
     }
 }

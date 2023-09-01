@@ -25,7 +25,7 @@ namespace Aurora_Project.Data.Entities
 
 
         [Required]
-        public int Year { get; set; }
+        public string Year { get; set; }
 
 
         [Required]
