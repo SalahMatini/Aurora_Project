@@ -9,7 +9,7 @@ namespace Aurora_Project.AutoMapperProfiles
     {
         public BikeAutoMapperProfilecs()
         {
-            CreateMap<Bike, BikeIndexViewModel>();
+            CreateMap<Bike, BikeListViewModel>();
 
             CreateMap<Bike, BikeDetailsViewModel>();
 

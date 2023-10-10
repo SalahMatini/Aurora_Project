@@ -1,5 +1,5 @@
 ﻿@using Aurora_Project.Models.Orders;
-@model IEnumerable<OrderIndexViewModel>
+@model IEnumerable<OrderListViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -62,7 +62,7 @@
                         @Html.DisplayFor(modelItem => order.ShippingAddress)
                     </td>
                     <td>
-                        @order.TotalPrice.ToString("c")
+                        @order.TotalPrice.ToString("C")
                     </td>
                     <td>
                         <a class="text-primary" asp-action="Edit" asp-route-id="@order.Id"><i class="fa-solid fa-pen-to-square"></i></a>

@@ -1,6 +1,6 @@
 ﻿namespace Aurora_Project.Models.Bikes
 {
-    public class BikeIndexViewModel
+    public class BikeListViewModel
     {
         public int Id { get; set; }
 

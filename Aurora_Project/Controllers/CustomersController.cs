@@ -31,7 +31,7 @@ namespace Aurora_Project.Controllers
                                          .Customers
                                          .ToListAsync();
 
-            var customerVMs = _mapper.Map<List<Customer>, List<CustomerIndexViewModel>>(customers);
+            var customerVMs = _mapper.Map<List<Customer>, List<CustomerListViewModel>>(customers);
 
             return View(customerVMs);
         }

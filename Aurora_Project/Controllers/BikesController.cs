@@ -29,7 +29,7 @@ namespace Aurora_Project.Controllers
                                      .Bikes
                                      .ToListAsync();
 
-            var bikeVMs = _mapper.Map<List<Bike>, List<BikeIndexViewModel>>(bikes);
+            var bikeVMs = _mapper.Map<List<Bike>, List<BikeListViewModel>>(bikes);
 
 
             return View(bikeVMs);

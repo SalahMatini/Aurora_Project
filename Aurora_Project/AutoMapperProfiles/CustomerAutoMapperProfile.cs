@@ -9,7 +9,7 @@ namespace Aurora_Project.AutoMapperProfiles
     {
        public CustomerAutoMapperProfile()
        {
-            CreateMap<Customer, CustomerIndexViewModel>();
+            CreateMap<Customer, CustomerListViewModel>();
 
             CreateMap<Customer, CustomerDetailsViewModel>();
 

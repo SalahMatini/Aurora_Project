@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Aurora_Project.Models.Orders
 {
-    public class OrderIndexViewModel
+    public class OrderListViewModel
     {
 
 

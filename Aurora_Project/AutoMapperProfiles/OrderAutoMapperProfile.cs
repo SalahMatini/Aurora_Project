@@ -10,7 +10,7 @@ namespace Aurora_Project.AutoMapperProfiles
         public OrderAutoMapperProfile()
         {
 
-            CreateMap<Order, OrderIndexViewModel>();
+            CreateMap<Order, OrderListViewModel>();
 
             CreateMap<Order, OrderDetailsViewModel>();
 

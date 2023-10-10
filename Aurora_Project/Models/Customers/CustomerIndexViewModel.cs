@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Aurora_Project.Models.Customers
 {
-    public class CustomerIndexViewModel
+    public class CustomerListViewModel
     {
         public int Id { get; set; }
 

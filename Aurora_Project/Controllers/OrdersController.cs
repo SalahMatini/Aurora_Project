@@ -30,10 +30,11 @@ namespace Aurora_Project.Controllers
             var orders = await _context
                                       .Orders
                                       .Include(orders => orders.Customer)
-                                      .Include(orders => orders.Bikes)
                                       .ToListAsync();
 
-            var orderVMs = _mapper.Map<List<Order>, List<OrderIndexViewModel>>(orders);
+            var orderVMs = _mapper.Map<List<OrderListViewModel>>(orders);
+
+           
 
             return View(orderVMs);
         }
@@ -84,6 +85,8 @@ namespace Aurora_Project.Controllers
 
                 await UpdateOrderBikes(order, orderVM.BikeIds);
 
+                CalculateOrderTotalPrice(order);
+
                 _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -109,12 +112,12 @@ namespace Aurora_Project.Controllers
                                      .Include(order => order.Bikes)
                                      .Where(order => order.Id == id)
                                      .SingleOrDefaultAsync();
-                                     
+
             if (order == null)
             {
                 return NotFound();
             }
-            
+
             var orderVM = _mapper.Map<Order, OrderCreateUpdateViewModel>(order);
 
 
@@ -150,6 +153,8 @@ namespace Aurora_Project.Controllers
                 _mapper.Map(orderVM, order);
 
                 await UpdateOrderBikes(order, orderVM.BikeIds);
+
+                CalculateOrderTotalPrice(order);
 
                 try
                 {
@@ -204,7 +209,7 @@ namespace Aurora_Project.Controllers
         private bool OrderExists(int id)
         {
             return (_context.Orders?.Any(e => e.Id == id)).GetValueOrDefault();
-        } 
+        }
 
         private async Task UpdateOrderBikes(Order order, List<int> bikeIds)
         {
@@ -212,16 +217,17 @@ namespace Aurora_Project.Controllers
                                      .Bikes
                                      .Where(bike => bikeIds.Contains(bike.Id))
                                      .ToListAsync();
-            
+
             order.Bikes.Clear();
 
             order.Bikes.AddRange(bikes);
 
         }
 
-
-
-
+        private void CalculateOrderTotalPrice(Order order)
+        {
+            order.TotalPrice = order.Bikes.Sum(order => order.Price);
+        }
 
         #endregion
     }
